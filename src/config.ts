@@ -1,20 +1,18 @@
 // ─────────────────────────────────────────────────────────────
 //  EDIT THIS FILE to fill in your details.
-//  It's the single source of truth for your name, links, and
-//  intro across every page.
+//  Single source of truth for your name, summary, and links.
 // ─────────────────────────────────────────────────────────────
 export const siteConfig = {
-  name: "Your Name",
+  name: "Dewan Choudhury",
 
   // Short role / headline shown under your name on the home page.
   role: "Software Engineer",
 
-  // 2–3 sentence intro, in your own voice.
+  // Short professional summary shown under your name.
   intro:
-    "I'm a software engineer with 9+ years of experience building [the kinds of things you build]. " +
-    "I care about [what you care about — reliable systems, clean code, product impact]. " +
-    "This is where I keep my work and projects.",
+    "ML-infrastructure & backend systems engineer (9 yrs). Production LLM/ML serving across NVIDIA GPU, AWS Inferentia, and Trainium; distributed training; and high-scale, low-latency identity services on a gRPC/Envoy service mesh. Focused on inference efficiency and accelerating ML workloads.",
 
+  // Not updated yet — still placeholders.
   email: "you@example.com",
 
   links: {

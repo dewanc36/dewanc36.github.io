@@ -1,0 +1,51 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+// ── EDIT: your personal projects. ──
+const projects = [
+  {
+    name: "Project One",
+    description:
+      "One or two sentences on what it does and why it's interesting.",
+    tags: ["TypeScript", "React", "Postgres"],
+    link: "https://github.com/yourhandle/project-one",
+  },
+  {
+    name: "Project Two",
+    description: "What problem it solves, or what you learned building it.",
+    tags: ["Go", "gRPC"],
+    link: "https://github.com/yourhandle/project-two",
+  },
+  {
+    name: "Project Three",
+    description: "Short, punchy description. Link to a demo or the repo.",
+    tags: ["Python"],
+    link: "", // leave empty for no link
+  },
+];
+---
+
+<Layout title="Projects" description="Personal projects.">
+  <h1>Projects</h1>
+  <ul class="projects">
+    {
+      projects.map((project) => (
+        <li class="project">
+          <h3>
+            {project.link ? (
+              <a href={project.link}>{project.name}</a>
+            ) : (
+              project.name
+            )}
+          </h3>
+          <p>{project.description}</p>
+          <ul class="tags">
+            {project.tags.map((tag) => (
+              <li class="tag">{tag}</li>
+            ))}
+          </ul>
+        </li>
+      ))
+    }
+  </ul>
+</Layout>

@@ -1,0 +1,30 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { siteConfig } from "../config";
+---
+
+<Layout>
+  <section class="hero">
+    <h1>{siteConfig.name}</h1>
+    <p class="hero__role">{siteConfig.role}</p>
+    <p class="lead">{siteConfig.intro}</p>
+
+    <ul class="linkrow">
+      <li><a href={`mailto:${siteConfig.email}`}>Email</a></li>
+      {
+        siteConfig.links.github && (
+          <li>
+            <a href={siteConfig.links.github}>GitHub</a>
+          </li>
+        )
+      }
+      {
+        siteConfig.links.linkedin && (
+          <li>
+            <a href={siteConfig.links.linkedin}>LinkedIn</a>
+          </li>
+        )
+      }
+    </ul>
+  </section>
+</Layout>

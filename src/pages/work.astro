@@ -1,0 +1,53 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+// ── EDIT: your work history. List most recent first. ──
+const experience = [
+  {
+    role: "Senior Software Engineer",
+    company: "Company Name",
+    period: "2022 — Present",
+    location: "City, ST",
+    points: [
+      "What you owned or led, and the impact (numbers help).",
+      "A technical highlight — a system you built, scaled, or rescued.",
+      "Something about how you work cross-functionally or mentor.",
+    ],
+  },
+  {
+    role: "Software Engineer",
+    company: "Earlier Company",
+    period: "2017 — 2022",
+    location: "City, ST",
+    points: [
+      "A meaningful project and its outcome.",
+      "A technology or domain you went deep on.",
+    ],
+  },
+];
+---
+
+<Layout title="Experience" description="Work experience.">
+  <h1>Experience</h1>
+  <div class="entries">
+    {
+      experience.map((job) => (
+        <article class="entry">
+          <div class="entry__head">
+            <h3>
+              {job.role} · <span class="entry__company">{job.company}</span>
+            </h3>
+            <span class="entry__meta">
+              {job.period} · {job.location}
+            </span>
+          </div>
+          <ul>
+            {job.points.map((point) => (
+              <li>{point}</li>
+            ))}
+          </ul>
+        </article>
+      ))
+    }
+  </div>
+</Layout>

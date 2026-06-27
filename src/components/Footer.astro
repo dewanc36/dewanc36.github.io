@@ -1,0 +1,12 @@
+---
+import { siteConfig } from "../config";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container">
+    © {year} {siteConfig.name} ·
+    <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+  </div>
+</footer>

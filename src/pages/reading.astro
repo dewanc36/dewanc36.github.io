@@ -1,0 +1,89 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Today's Reading"
+  description="The two most-discussed stories on the Hacker News front page right now."
+>
+  <section>
+    <h1>Today's Reading</h1>
+    <p class="muted">
+      The two most-discussed stories on the Hacker News front page right now.
+    </p>
+
+    <ul class="reading" id="reading-list">
+      <li class="reading__status">Loading…</li>
+    </ul>
+
+    <p class="muted reading__src">Source: Hacker News, via the Algolia API.</p>
+  </section>
+</Layout>
+
+<script>
+  // Pull the current HN front page, keep the two most-commented stories.
+  const ENDPOINT =
+    "https://hn.algolia.com/api/v1/search?tags=front_page&hitsPerPage=50";
+
+  const esc = (s) =>
+    String(s).replace(
+      /[&<>"']/g,
+      (c) =>
+        ({
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#39;",
+        })[c],
+    );
+
+  const domainOf = (url) => {
+    try {
+      return new URL(url).hostname.replace(/^www\./, "");
+    } catch {
+      return "";
+    }
+  };
+
+  const card = (hit) => {
+    const hnUrl = `https://news.ycombinator.com/item?id=${hit.objectID}`;
+    const articleUrl = hit.url || hnUrl;
+    const comments = hit.num_comments ?? 0;
+    const points = hit.points ?? 0;
+    const domain = domainOf(hit.url);
+    return `
+      <li class="reading__item">
+        <h3><a href="${esc(articleUrl)}" target="_blank" rel="noopener">${esc(hit.title)}</a></h3>
+        <div class="reading__meta">
+          ${domain ? `<span>${esc(domain)}</span>` : ""}
+          <a href="${hnUrl}" target="_blank" rel="noopener">${comments} comments</a>
+          <span>${points} points</span>
+        </div>
+      </li>`;
+  };
+
+  async function loadReading() {
+    const list = document.getElementById("reading-list");
+    try {
+      const res = await fetch(ENDPOINT);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const { hits } = await res.json();
+      const top = (hits || [])
+        .slice()
+        .sort((a, b) => (b.num_comments ?? 0) - (a.num_comments ?? 0))
+        .slice(0, 2);
+
+      if (!top.length) throw new Error("no stories");
+      list.innerHTML = top.map(card).join("");
+    } catch {
+      list.innerHTML = `
+        <li class="reading__status">
+          Couldn't load today's reading right now —
+          <a href="https://news.ycombinator.com/news" target="_blank" rel="noopener">browse Hacker News →</a>
+        </li>`;
+    }
+  }
+
+  loadReading();
+</script>

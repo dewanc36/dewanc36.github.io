@@ -218,6 +218,37 @@ a:hover {
   padding: 0.1rem 0.6rem;
 }
 
+/* ── Reading ── */
+.reading {
+  display: grid;
+  gap: 1rem;
+  padding: 0;
+  margin: 1.75rem 0 1.25rem;
+  list-style: none;
+}
+.reading__item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  background: var(--card);
+}
+.reading__item h3 {
+  margin: 0 0 0.5rem;
+}
+.reading__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.9rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.reading__status {
+  color: var(--muted);
+}
+.reading__src {
+  font-size: 0.85rem;
+}
+
 /* ── Footer ── */
 .footer {
   border-top: 1px solid var(--border);

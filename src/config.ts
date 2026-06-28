@@ -5,20 +5,24 @@
 export const siteConfig = {
   name: "Dewan Choudhury",
 
-  // Short role / headline shown under your name on the home page.
-  role: "Software Engineer",
+  // Short headline shown under your name on the home page.
+  role: "Software Engineer · Weightlifting enthusiast · Lifelong learner",
 
-  // Short professional summary shown under your name.
-  intro:
-    "ML-infrastructure & backend systems engineer (9 yrs). Production LLM/ML serving across NVIDIA GPU, AWS Inferentia, and Trainium; distributed training; and high-scale, low-latency identity services on a gRPC/Envoy service mesh. Focused on inference efficiency and accelerating ML workloads.",
+  // Personal bio shown under your name. Each string renders as its own paragraph.
+  intro: [
+    "I'm a New York–based software engineer who's bounced happily across industries — building at Amazon (AWS, Amazon.com, Prime Video Search), Snapchat, and the investment bank Houlihan Lokey.",
+    "I work on high-scale backend systems: training ML models across different hardware and GPUs, making inference faster and cheaper, secure high-volume public APIs, caching, scaling, and big-data pipelines.",
+    "When I'm not in the terminal, you'll find me under a barbell, on a trail somewhere in upstate New York, or volunteering for causes close to me.",
+  ],
 
-  // Not updated yet — still placeholders.
-  email: "you@example.com",
+  // One-line summary used for the page's SEO / social meta description.
+  description:
+    "Dewan Choudhury — New York–based software engineer working on high-scale backend systems, distributed ML training, ML inference efficiency, secure public APIs, and big-data pipelines.",
+
+  email: "nysde256@gmail.com",
 
   links: {
-    github: "https://github.com/yourhandle",
-    linkedin: "https://www.linkedin.com/in/yourhandle/",
-    // Add or remove freely:
-    // twitter: "https://twitter.com/yourhandle",
+    // No GitHub link yet — add when ready, e.g. github: "https://github.com/<handle>",
+    linkedin: "https://www.linkedin.com/in/dewan-choudhury149/",
   },
 };

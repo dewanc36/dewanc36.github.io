@@ -8,7 +8,7 @@ interface Props {
   description?: string;
 }
 
-const { title, description = siteConfig.intro } = Astro.props;
+const { title, description = siteConfig.description } = Astro.props;
 const pageTitle = title ? `${title} · ${siteConfig.name}` : siteConfig.name;
 ---
 

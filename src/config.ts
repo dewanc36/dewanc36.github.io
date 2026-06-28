@@ -10,8 +10,8 @@ export const siteConfig = {
 
   // Personal bio shown under your name. Each string renders as its own paragraph.
   intro: [
-    "I'm a New York–based software engineer who's bounced happily across industries — building at Amazon (AWS, Amazon.com, Prime Video Search), Snapchat, and the investment bank Houlihan Lokey.",
-    "I work on high-scale backend systems: training ML models across different hardware and GPUs, making inference faster and cheaper, secure high-volume public APIs, caching, scaling, and big-data pipelines.",
+    "I'm a New York based software engineer who's bounced happily across industries — building at <strong>Amazon</strong> (AWS, Amazon.com, Prime Video Search), <strong>Snapchat</strong>, and the investment bank <strong>Houlihan Lokey</strong>.",
+    "I work on high-scale backend systems: enabling ML model training across different hardware and GPUs, making inference faster and cheaper, secure high-volume public APIs, caching, scaling, and big-data pipelines.",
     "When I'm not in the terminal, you'll find me under a barbell, on a trail somewhere in upstate New York, or volunteering for causes close to me.",
   ],
 

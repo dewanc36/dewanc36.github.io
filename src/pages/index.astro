@@ -7,7 +7,7 @@ import { siteConfig } from "../config";
   <section class="hero">
     <h1>{siteConfig.name}</h1>
     <p class="hero__role">{siteConfig.role}</p>
-    {siteConfig.intro.map((para) => <p class="lead">{para}</p>)}
+    {siteConfig.intro.map((para) => <p class="lead" set:html={para} />)}
 
     <ul class="linkrow">
       <li><a href={`mailto:${siteConfig.email}`}>Email</a></li>
